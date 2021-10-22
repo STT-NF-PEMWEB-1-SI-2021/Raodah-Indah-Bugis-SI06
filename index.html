@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+    <link href='https://www.soengsouy.com/favicon.ico' rel='icon' type='image/x-icon'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- library validate -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.js"></script>
+    <!-- style css -->
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+<h2>Pembayaran</h2>
+<div class="row">
+    <div class="col-75">
+        <div class="container">
+            <form action="bayar.html" method="get">
+                <div class="row">
+                    <div class="col-50">
+                        <h3>Alamat Penagihan</h3>
+                        <label for="fname"><i class="fa fa-user"></i> Nama Lengkap</label>
+                        <input type="text" id="fname" name="fullname" placeholder="Masukan Nama" required>
+                        <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                        <input type="text" id="email" name="email" placeholder="Masukan Email >@gmail.com" required>
+                        <label for="adr"><i class="fa fa-address-card-o"></i> Alamat</label>
+                        <input type="text" id="adr" name="address" placeholder="Masukan Alamat" required>
+                        <label for="city"><i class="fa fa-institution"></i> Kota</label>
+                        <input type="text" id="city" name="city" placeholder="Masukan Kota" required>
+
+                        <div class="row">
+                            <div class="col-50">
+                                <label for="state">Negara</label>
+                                <input type="text" id="state" name="state" placeholder="Masukan Negara"required>
+                            </div>
+                            <div class="col-50">
+                                <label for="zip">kode pos</label>
+                                <input type="text" id="zip" name="zip" placeholder=" masukan kode pos"required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-50">
+                        <h3>Pembayaran</h3>
+                        <label for="fname">Kartu Yang Diterima</label>
+                        <div class="icon-container">
+                            <i class="fa fa-cc-visa" style="color:navy;"></i>
+                            <i class="fa fa-cc-amex" style="color:blue;"></i>
+                            <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                            <i class="fa fa-cc-discover" style="color:orange;"></i>
+                        </div>
+
+                        <label for="cname">Name Pemilik Kartu</label>
+                        <input type="text" id="cname" name="cardname" placeholder="Masukan Nama"required>
+                        <label for="ccnum">Nomor Kartu Debit/Credit</label>
+                        <input type="text" id="ccnum" name="cardnumber" placeholder="contoh : xxxx-xxxx-xxxx-4444"required>
+                        <label for="expmonth">Bulan Exp</label>
+                        <input type="text" id="expmonth" name="expmonth" placeholder="Masukan Bulan"required>
+                        <div class="row">
+                            <div class="col-50">
+                                <label for="expyear">Tahun Exp</label>
+                                <input type="text" id="expyear" name="expyear" placeholder="xxxx"required>
+                            </div>
+                            <div class="col-50">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" name="cvv" placeholder="xxx"required>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <label>
+                <input type="checkbox" checked="checked" name="sameadr">Alamat Pengiriman sama dengan Alamat Penagihan
+                </label>
+                <input type="submit" value="Bayar" class="btn">
+            </form>
+        </div>
+    </div>
+    <div class="col-25">
+        <div class="container">
+            <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>2</b></span></h4>
+            <p><a href="#">Sepatu Converse Terbaru</a> <span class="price">Rp.300.000</span></p>
+            <p><a href="#">Dress Putih Casual</a> <span class="price">Rp.245.000</span></p>
+            <hr>
+            <p>Total <span class="price" style="color:black"><b>Rp. 545.000</b></span></p>
+        </div>
+    </div>
+</div>
+<!-- script validate js -->
+<script>
+    $('#validate').validate({
+        roles: {
+            fullname: {
+                required: true,
+            },
+            email: {
+                required: true,
+            },
+            address: {
+                required: true,
+            },
+            city: {
+                required: true,
+            },
+            state: {
+                required: true,
+            },
+            zip: {
+                required: true,
+            },
+            cardname: {
+                required: true,
+            },
+            cardnumber: {
+                required: true,
+            },
+            expmonth: {
+                required: true,
+            },
+            expyear: {
+                required: true,
+            },
+            cvv: {
+                required: true,
+            },
+           
+        },
+        messages: {
+            fullname:"tidak boleh kosong*",
+            email:"tidak boleh kosong*",
+            city:"tidak boleh kosong*",
+            address:"tidak boleh kosong*",
+            state:"tidak boleh kosong*",
+            zip:"tidak boleh kosong*",
+            cardname:"tidak boleh kosong*",
+            cardnumber:"tidak boleh kosong*",
+            expmonth:"tidak boleh kosong*",
+            expyear:"tidak boleh kosong*",
+            cvv:"tidak boleh kosong*",
+        },
+    });
+</script>
+</body>
+</html>
