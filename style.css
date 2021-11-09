@@ -1,116 +1,163 @@
-body {
-    font-family: Arial;
-    font-size: 17px;
-    padding: 8px;
-}
-h2{
-    text-align:left;
-}
-
 * {
-    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
 }
 
-.error {
-    color: red;
-    border-color: red;
+body {
+    background-color: #2fa2db;
+    font-family: sans-serif;
 }
 
-.row {
-    display: -ms-flexbox; /* IE10 */
-    display: flex;
-    -ms-flex-wrap: wrap; /* IE10 */
-    flex-wrap: wrap;
-    margin: 0 -10px;
+.content {
+  grid-area: content;
+
 }
 
-.col-25 {
-    -ms-flex: 25%; /* IE10 */
-    flex: 25%;
+.footer {
+  grid-area: footer;
+  background: rgb(114, 97, 216);
 }
-
-.col-50 {
-    -ms-flex: 50%; /* IE10 */
-    flex: 50%;
-}
-
-.col-75 {
-    -ms-flex: 75%; /* IE10 */
-    flex: 75%;
-}
-
-.col-25,.col-50,.col-75 {
-    padding: 0 16px;
-}
-
 .container {
-    background-color: #FFFFFF;
-    padding: 3px 18px 13px 18px;
-    border: 1px solid lightgrey;
-    border-radius: 3px;
-    box-shadow: 0 0 2rem 0 rgba(168, 180, 194, 0.37);
-}
-
-
-input[type=text] {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 12px;
-    border: 1px solid rgb(130, 26, 26);
-    border-radius: 1px;
-}
-
-label {
-    margin-bottom: 10px;
-    display: block;
-}
-
-.icon-container {
-    margin-bottom: 20px;
-    padding: 7px 0;
-    font-size: 24px;
-}
-
-.btn {
-    background-color: #01BAEF;
-    color: white;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
-    width: 100%;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 17px;
-    box-shadow: 0 0 1rem 0 rgba(99, 123, 150, 0.329);
+  font-size: 0,9.5em;
+  width: 100%;
+  height: 100;
+  height: 100vh;
+  display: grid;
+  grid-template-areas: "sidebar" "content" "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: 130px 800px 250px;
 
 }
 
-.btn:hover {
-    background-color: #0CBABA;
+.content, .sidebar, .footer{
+  padding: 3em;
 }
 
-a {
-    color: #2196F3;
+nav ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
 }
 
-hr {
-    border: 1px solid lightgrey;
+nav li{
+  list-style: none;
+  padding: 3em 0;
 }
 
-span.price {
-    float: right;
-    color: grey;
+nav li a {
+  color: rgb(255, 249, 249);
+  font-weight: 700;
+  opacity: 0.6;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
-/* Responsive layout - when the screen is less than 800px wide, make the two columns 
-    stack on top of each other instead of next to each other (also change the direction 
-    - make the "cart" column go on top) 
-*/
-@media (max-width: 800px) {
-    .row {
-        flex-direction: column-reverse;
-    }
-    .col-25 {
-        margin-bottom: 20px;
-    }
+nav li a:hover {
+  opacity: 1;
+}
+.hero {
+  max-width: 90 px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero img {
+  width: 200px;
+}
+
+.hero h1 {
+  font-size: 2em;
+  font-weight: 300;
+  color: #5a5a5a;
+}
+
+.hero p {
+  font-weight: 300;
+  line-height: 1.3em;
+  color: #000000;
+}
+
+.action-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  background: #364735;
+  padding: 0.5em 2em;
+  border-radius: 60px;
+  margin: 1em 0;
+  transition: 0.3s;
+}
+
+footer ul {
+max-width: 640px;
+margin: 2em auto;
+padding: 0;
+text-align: center;
+display: flex;
+flex-direction: row;
+
+}
+
+footer ul li {
+  list-style: none;
+  align-self: flex-end;
+}
+
+footer ul li a{
+  text-decoration: none;
+  color: #c1c6ce;
+}
+
+footer ul li img {
+  width: 30%;
+}
+
+footer p {
+  font-size: 0.8em;
+}
+
+@media (min-width: 1040px){
+  .container {
+      grid-template-areas:"sidebar content" "sidebar footer" ;
+      grid-template-rows: 1fr auto ;
+      grid-template-columns: 300px 1f;
+  }
+
+  nav ul{
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+  }
+  .sidebar{
+      background: linear-gradient( rgb(0, 0, 0), rgb(179, 57, 212),
+      rgb(114, 97, 216)) ;
+      padding-top: 10em;
+  }
+  .hero{
+      text-align: left;
+      margin: 7em 0;
+  }
+  .hero img {
+      width: 200px;
+      float: right;
+  }
+  .hero h1{
+      font-size: 3em;
+  }
+  .hero p{
+      width: 70%;
+  }
+  footer ul {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1em 0;
+  }
+
+  footer ul li a img {
+      width: 20%;
+  }
 }
