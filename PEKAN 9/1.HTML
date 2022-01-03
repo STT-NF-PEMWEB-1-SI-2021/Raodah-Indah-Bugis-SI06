@@ -1,0 +1,192 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript - RIZKI MAULANA</title>
+</head>
+<body>
+    <form name="form">
+        <div class="container">
+            <h1 id="title">Mata Uang</h1>
+            <table id="tabel">
+                <tr>
+                    <td><label for="nilai">Nilai</label></td>
+                    <td>Mata Uang </td>
+                    <td><label for="kurs">Hasil Kurs dalam Rupiah</label></td>
+                    
+                </tr>
+                <tr>
+                    <td><input type="text" name="nilai" autocomplete="0" onchange="konversiuang()"></td>
+                    <td>
+                        <select name="uangasing" id="uang" onchange="konversiuang()">
+                            <option value="pilih">-- Pilih Mata Uang Asing --</option>
+                            <option value="USD">United State Dollar</option>
+                            <option value="SGD">Singapore Dollar</option>
+                            <option value="MLY">Ringgit Malaysia</option>
+                            <option value="EURO">Euro</option>
+                            <option value="RAS">Riyal Arab Saudi</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="kurs"></td>
+                </tr>
+            </table>
+        </div>
+    <script>
+        function konversiuang() {
+    var input = (document.form.nilai.value);
+    var hitunguang = (document.form.uangasing.value);
+
+    var hasil = 0;
+
+    if (hitunguang == "USD") {
+        hasil = input * 9.915;
+    }
+    else if (hitunguang == "SGD") {
+        hasil = input * 13.472;
+    }
+    else if (hitunguang == "MLY") {
+        hasil = input * 0.874;
+    }
+    else if (hitunguang == "EURO") {
+        hasil = input * 15.888;
+    }
+    else if (hitunguang == "RAS") {
+        hasil = input * 3.592;
+    }
+    else {
+        hasil = 0;
+    }
+    document.form.kurs.value = eval(hasil);
+
+}
+    </script>
+
+    <h1>Form Login</h1>
+    <form action="username">
+        <p>Username</p>
+        <input type="Username" id="username">
+        <p>Password</p>
+        <input type="Password" id="password">
+        <button onclick="login()">Masuk</button>
+    </form>
+    
+    <script>
+        function login() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            if (username == "rizk21177si" && password == "iyaiya"){
+                alert("Login berhasil!")
+                // window.open("http://127.0.0.1:5500/login.html")
+                // window.location = "login.html"
+                document.write("LOGIN SUCCES")
+            }else{
+                alert("Login Gagal!")
+            }
+        }
+    </script>
+    
+    <h1>Chat Message</h1>
+    <body style="background: red;">
+        <textarea name="" id="chat" cols="30" rows="10"></textarea>
+        
+     
+     
+        <input  type="text" id="input">
+        <button onclick="kirim()">Kirim</button>
+     
+     
+       <script>
+         let message = [];
+         let chat = document.getElementById("chat");
+         let input = document.getElementById("input");
+         let end = 0;
+         function kirim(){
+           message.push(input.value)
+           for (let index = 0; index <= 1; index++) {
+              end += 1
+              document.getElementById("chat").innerHTML = message.join('\n'); 
+              input.value = '' 
+           }
+         }
+       </script>
+
+       <h1>Image Pirker</h1>
+       <div>
+        <select onchange="change()" id="One">
+            <option>Pilih Foto Rumah</option>
+            <option value="Rumah Gadang">Rumah Gadang</option>
+            <option value="Rumah Joglo Betawi">Rumah Joglo Betawi/option>
+            <option value="Rumah Adat Tongkonan">Rumah Adat Tongkonan</option>
+            <option value="Rumah Betang">Rumah Betang</option>
+            <option value="Rumah Adat Bali">Rumah Adat Bali</option>
+        </select>
+    </div><br>
+        <img src="" alt="" id="Two" width="50%"><br>
+
+<script>
+    function change(){
+        let img = document.getElementById("One").value
+        let image = document.getElementById("Two")
+        if(img == "Rumah Gadang"){
+           image.src = "Rumah 1.png"
+            alert ("Ini Rumah Gadang!")
+        }else if(img == "Rumah Joglo Betawi"){
+            image.src = "Rumah 2.jpeg" 
+            alert ("Ini Rumah Joglo Betawi!")
+        }else if(img == "Rumah Adat Tongkonan"){
+            image.src = "Rumah 3.jpg"
+            alert ("Ini Rumah Adat Tongkonan!")
+        }else if(img == "Rumah Betang"){
+            image.src = "Rumah 4.jpg"
+            alert ("Ini Rumah Betang!")
+        }else if(img == "Rumah Adat Bali") {
+            image.src = "Rumah 5.jpg"
+            alert("Ini Rumah Adat Bali!")
+        }    
+    }
+</script>
+    
+</body>
+</html>
+ Ini Html Validation
+ <form onsubmit="form()">
+    <div id="pembungkusValidation">
+        <h1 class="title">Validation</h1>
+        <label for="username"><span class="nama">Nama: </span><br>
+            <input type="text" class="inp" id="username" name="username" required maxlength="30" autocomplete="0">
+        </label>
+
+        <label for="email"><span class="nama">Email:</span><br>
+            <input type="email" class="inp" id="email" name="email" autocomplete="0" required>
+        </label>
+
+        <label for="jamBerangkat"><span class="nama">Jam Keberangkatan:</span><br>
+            <input type="time" class="inp" id="jamBerangkat" name="jamKeberangkatan" autocomplete="0" min="00.00"
+                max="23.59" required>
+        </label>
+
+        <label for="tujuan"><span class="nama">Tujuan:</span><br>
+            <input type="text" class="inp" id="tujuan" name="tujuan" autocomplete="0" required>
+        </label>
+
+        <label for="jumlahTiket"><span class="nama">Jumlah Tiket:</span><br>
+            <input type="number" class="inp" id="jumlahTiket" name="jumlahTiket" autocomplete="0" required min="0"
+                max="10">
+        </label>
+        <div class="button">
+            <label for="submit">
+                <input id="submit" type="submit">
+            </label>
+            <label for="reset">
+                <input id="reset" type="reset">
+            </label>
+        </div>
+
+    </div>
+
+    <div id="tampilan">
+        <p></p>
+    </div>
+</form>
